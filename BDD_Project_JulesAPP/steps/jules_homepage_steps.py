@@ -27,4 +27,4 @@ def step_impl(context):
 
 @Then("Home page: I check if I am on login page")
 def step_impl(context):
-	context.browser.verify_url('https://jules.app/sign-up')
+	context.basepage.verify_url('https://jules.app/sign-in')

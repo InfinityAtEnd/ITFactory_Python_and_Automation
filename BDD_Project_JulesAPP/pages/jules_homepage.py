@@ -1,10 +1,11 @@
-from BDD_Project_JulesAPP.browser import Browser
+from BDD_Project_JulesAPP.pages.jules_basepage import Basepage
 from selenium.webdriver.common.by import By
 
-class Homepage(Browser):
+class Homepage(Basepage):
 	EMAIL_TEXT_BOX = (By.XPATH, "//input[@placeholder='Enter your email']")
 	PASSWORD_TEXT_BOX = (By.XPATH, "//input[@placeholder='Enter your password']")
 	SIGNUP_BUTTON = (By.XPATH, '//a[@data-test-id="sign-up-link"]')
+	LOGIN_BUTTON = (By.XPATH, '//button[@data-test-id="login-button"]')
 
 
 	def navigate_to_homepage(self):
@@ -22,7 +23,9 @@ class Homepage(Browser):
 		assert not self.chrome.find_element(*self.LOGIN_BUTTON).is_enabled(), f'The login button is ENABLED !'
 
 	def activate_login_button(self):
-		self.chrome.find_element(*self.LOGIN_BUTTON).click()
+		self.wait_and_click_element_by_selector(*self.LOGIN_BUTTON)
+		# self.chrome.find_element(*self.LOGIN_BUTTON).click()
 
 	def activate_signup_button(self):
-		self.chrome.find_element(*self.SIGNUP_BUTTON).click()
+		self.wait_and_click_element_by_selector(*self.SIGNUP_BUTTON)
+		# self.chrome.find_element(*self.SIGNUP_BUTTON).click()
