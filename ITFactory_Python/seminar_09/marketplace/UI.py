@@ -1,7 +1,8 @@
 # UI - User Interface
 from pprint import pprint
 
-from seminar_09.marketplace.marketplace_repository import CSVMarketplaceRepository, JSONMarketplaceRepository
+from ITFactory_Python.seminar_09.marketplace.marketplace_repository import CSVMarketplaceRepository, \
+	JSONMarketplaceRepository
 
 
 def choose_db():
