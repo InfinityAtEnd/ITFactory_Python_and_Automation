@@ -3,6 +3,7 @@ from pprint import pprint
 
 from ITFactory_Python.seminar_09.marketplace.marketplace_repository import CSVMarketplaceRepository, \
 	JSONMarketplaceRepository
+from ITFactory_Python.seminar_09.marketplace.users_class import User
 
 
 def choose_db():
@@ -35,11 +36,11 @@ def print_menu():
 def add_user(repository, repo_type):
 	name = input('Please enter the user name: ')
 	age = int(input('Please enter the user age: '))
-	user_ID = abs(hash(name) + hash(age))
+	user = User(name, age)
 	if repo_type == 'csv':
-		repository.add([user_ID, name, age])
+		repository.add(user.save_to_csv_file())
 	else:
-		repository.add({'ID': user_ID, 'name': name, 'age': age})
+		repository.add(user.save_to_json_file())
 
 
 def delete_user(repository):

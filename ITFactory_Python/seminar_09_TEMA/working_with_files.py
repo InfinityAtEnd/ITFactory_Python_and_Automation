@@ -53,7 +53,3 @@ def remove_line_with_char(file_name, char):
 
 
 remove_line_with_char('input2.csv', 'a')
-
-# 4.	Tema in echipa:
-#  Sa se scrie versiunea pentru obiecte produse pentru marketplace_repository.
-#  (Optional) Sa nu se utilizeze dictionare, ci obiecte de tip Product definite de voi.
