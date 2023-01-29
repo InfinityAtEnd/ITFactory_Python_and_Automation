@@ -10,7 +10,7 @@ def how_long(func):
 		start = perf_counter()
 		func(*args, **kwargs)
 		end = perf_counter()
-		return print(f'Elapsed time: {end - start}')
+		print(f'Elapsed time: {end - start}')
 
 	return wrapper
 
@@ -31,15 +31,29 @@ def sum_of_all(num):
 # Comparati diferenta de timp necesara generarii.
 @how_long
 def first_100_with_list():
-	lst = range(100)
-	print(f'Using List: {list(lst)}')
+	lst = []
+	current_number = 2
+	while len(lst) < 100:
+		for i in range(2,current_number):
+			if current_number % i == 0:
+				break
+		else:
+			lst.append(current_number)
+		current_number += 1
+	print(f'Using List ({len(lst)} numbers): {list(lst)}')
 
 
 def gen_num(n):
 	generated_numbers = 0
+	current_number = 2
 	while generated_numbers < n:
-		yield generated_numbers
-		generated_numbers += 1
+		for i in range(2, current_number):
+			if current_number % i == 0:
+				break
+		else:
+			yield current_number
+			generated_numbers += 1
+		current_number += 1
 
 
 @how_long
@@ -47,7 +61,7 @@ def first_100_with_generator():
 	lst = []
 	for i in gen_num(100):
 		lst.append(i)
-	print(f'Using Generator: {lst}')
+	print(f'Using Generator ({len(lst)} numbers): {lst}')
 
 
 first_100_with_list()
@@ -80,9 +94,9 @@ def add_person(name, age, ocupation):
 
 
 @decorator_log('log.csv')
-def add_car(name, model, fabrication_place):
-	return f'The {name} car beeing the {model} type was built in {fabrication_place}'
+def add_car(name, model, fabrication_place, by_who):
+	return f'The {name} car beeing the {model} type was built in {fabrication_place} by {by_who}'
 
 
 add_person('Marian', 29, 'student')
-add_car('BMW', 'X5', 'Tokyo')
+add_car('BMW', 'X5', 'Tokyo', 'unpaid children')
