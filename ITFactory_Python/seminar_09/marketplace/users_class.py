@@ -1,3 +1,9 @@
+# 4.	Tema in echipa:
+#  Sa se scrie versiunea pentru obiecte produse pentru marketplace_repository.
+#  (Optional) Sa nu se utilizeze dictionare, ci obiecte de tip Product definite de voi.
+
+
+
 class User:
 	def __init__(self, name, age):
 		self.name = name
