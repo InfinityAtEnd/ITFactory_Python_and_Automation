@@ -16,17 +16,19 @@ import random
 
 
 def alphabeticaly(the_student_list):
-	return the_student_list.sort()
+	the_list = sorted(the_student_list)
+	return the_list
 
 
 def inverse_alphabeticaly(the_student_list):
-	the_list = the_student_list.sort(reverse=True)
+	the_list = sorted(the_student_list, reverse=True)
 	return the_list
 
 
 def random_order(the_student_list):
-	random.shuffle(the_student_list)
-	return the_student_list
+	the_list = the_student_list.copy()
+	random.shuffle(the_list)
+	return the_list
 
 
 class ClassRoom:
@@ -35,14 +37,10 @@ class ClassRoom:
 
 	def add_student(self, student):
 		self.students.append(student)
-		print(f'{student} is present')
-		print(f'present student so far: {self.students}')
 
 	def students_survey(self, strategy):
 		survey_order = strategy(self.students)
-		print(f'the survey_order: {survey_order}')
 		for student in survey_order:
-			print(f'current student: {student}')
 			self.the_survey(student)
 
 	@staticmethod
