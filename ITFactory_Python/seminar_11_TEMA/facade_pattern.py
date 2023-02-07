@@ -12,7 +12,7 @@ CONS:
 	- often are implemented as singleton abstract factories and are confused
 
 
-Rules of the Facade Pattern:
+Real life usage:
 	-
 """
 
@@ -45,6 +45,7 @@ class Facade:
 		print(self.explorer.starting())
 		print(self.network.starting())
 		print(self.applications.starting())
+
 
 
 my_windows = Facade()

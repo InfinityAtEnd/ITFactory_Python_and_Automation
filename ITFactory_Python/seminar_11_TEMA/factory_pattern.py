@@ -13,6 +13,9 @@ Rules of the Factory Method:
 	- it creates a new object
 	- returns an abstract class or interface
 	- the abstract class or interface is implemented by several classes
+
+Real life usage:
+	- user login function, depending on the authorization level, the user gets access to different sort of data
 """
 from abc import ABC, abstractmethod
 
@@ -56,7 +59,7 @@ class Smootie(AbsFood):
 
 	def components(self):
 		print(
-			f'{self.name} contsins: 1 very recyclable glass, 250 ml of chilly sauce since we run out of strawberries.')
+			f'{self.name} contains: 1 very recyclable glass, 250 ml of chilly sauce since we run out of strawberries.')
 
 	def price(self):
 		print(f'{self.name} costs: 46 $')
@@ -76,6 +79,6 @@ class Order:  # Factory Interface
 
 
 factory = Order()
-result = factory.order('Pizzza')
+result = factory.order('Smootie')
 result.components()
 result.price()

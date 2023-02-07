@@ -8,11 +8,11 @@ PROS:
 CONS:
 	-
 
-Rules of the Strategy Pattern:
-	-
+Real life usage:
+	- on the server the documents are saved in .txt files but the user could choose to extract them as .pdf or another format
+	- the use can choose a desired language and all the information is provided in the chosen language
 """
 import random
-
 
 
 def alphabeticaly(the_student_list):
