@@ -9,5 +9,5 @@ class Basepage(Browser):
 		assert current_url == url, f'Wrong page! Expected {url} but we are on {current_url}'
 
 	def wait_and_click_element_by_selector(self, by, selector):
-		WebDriverWait(self.chrome, 5).until(EC.presence_of_element_located((by, selector)))
+		WebDriverWait(self.chrome, 2).until(EC.presence_of_element_located((by, selector)))
 		self.chrome.find_element(by, selector).click()

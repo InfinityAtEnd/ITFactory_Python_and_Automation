@@ -65,6 +65,6 @@ Feature: Test the search functionality in the homepage of Ebay
 
     @electronics
     Examples:
-      | product_name      | category_name                 | property01 | value01             | property02 | value02 | property03 | value03 | property04 | value04 |
-      | iphone max 10 pro | Cell Phones & Accessories     | Model      | For Apple iPhone 12 | Color      | AT9     | None       | None    | None       | None    |
-      | blouse            | Clothing, Shoes & Accessories | Color      | white               | Size       | XL      | None       | None    | None       | None    |
+      | product_name      | category_name                 | property01 | value01       | property02 | value02 | property03 | value03 | property04 | value04 |
+      | iphone max 10 pro | Cell Phones & Accessories     | Model      | For iPhone 12 | Color      | T9      | None       | None    | None       | None    |
+      | blouse            | Clothing, Shoes & Accessories | Color      | Yellow        | Size       | XL      | None       | None    | None       | None    |
