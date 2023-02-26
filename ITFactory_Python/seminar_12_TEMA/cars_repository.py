@@ -10,12 +10,7 @@ class CarRepository:
 
 	# function to check for licence plate unicity since we will use it as a unique identifier
 	def licence_unicity(self, licence_plate):
-		car_list = {}
-		with open(self.file_name, 'r') as f:
-			try:
-				car_list = json.load(f)
-			except:
-				pass
+		car_list = self.get_all()
 		# car_list = car_list.values()
 		for car in car_list:
 			if licence_plate == car["licence_plate"]:
@@ -24,13 +19,7 @@ class CarRepository:
 
 	# function to verify if the exact same car is already there...
 	def is_already_there(self, car):
-		data = []
-		with open(self.file_name, 'r') as f:
-			try:
-				data = json.load(f)
-			except:
-				pass
-		data = list(data)
+		data = self.get_all()
 		if car in data:
 			return True
 		return False
@@ -38,12 +27,7 @@ class CarRepository:
 	def add_car(self, car):
 		self.validator.validate_car(car)
 		# we get the current data of cars from the file
-		file_data = {}
-		with open(self.file_name, 'r') as f:
-			try:
-				file_data = json.load(f)
-			except:
-				pass
+		file_data = self.get_all()
 		# we check for licence plate unicity
 		if not self.licence_unicity(car['licence_plate']):
 			raise InvalidCarException("Error! The licence plate has been already taken!")
@@ -56,30 +40,28 @@ class CarRepository:
 			json.dump(file_data, f, indent=4)
 
 	# function to return all the stored cars
-	def show_all(self):
-		with open(self.file_name, 'r') as f:
-			data = json.load(f)
+	def get_all(self):
+		data = []
+		try:
+			with open(self.file_name, 'r') as f:
+				data = json.load(f)
+		except:
+			pass
 		return data
 
 	# function to return a car by licence plate
 	def find_by_plate(self, licence_plate):
-		with open(self.file_name, 'r') as f:
-			cars = json.load(f)
-			for car in cars:
-				if car["licence_plate"] == licence_plate:
-					return car
+		cars = self.get_all()
+		for car in cars:
+			if car["licence_plate"] == licence_plate:
+				return car
 		raise InvalidCarException(f"The {licence_plate} licence plata was not found.")
 
 	# function to delete a car by licence plate
 	def delete_by_plate(self, licence_plate):
-		initial_data = []
+		initial_data = self.get_all()
 		left_data = []
 		car_found = False
-		with open(self.file_name, 'r') as f:
-			try:
-				initial_data = json.load(f)
-			except:
-				pass
 		for car in initial_data:
 			if car["licence_plate"] == licence_plate:
 				car_found = True
@@ -94,11 +76,7 @@ class CarRepository:
 	# function to replace the data of a car by licence plate
 	def replace_by_plate(self, car, licence_plate):
 		car_found = False
-		with open(self.file_name, 'r') as f:
-			try:
-				cars = json.load(f)
-			except:
-				pass
+		cars = self.get_all()
 		for i in range(len(cars)):
 			if cars[i]["licence_plate"] == licence_plate:
 				cars[i] = car

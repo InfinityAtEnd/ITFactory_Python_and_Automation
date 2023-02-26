@@ -1,9 +1,16 @@
 [
     {
         "name": "Dacia",
-        "color": "green",
-        "model": "MXV",
-        "fabrication_date": 2004,
-        "licence_plate": "IS99XYZ"
+        "color": "yellow",
+        "model": "MCV",
+        "fabrication_date": 2010,
+        "licence_plate": "IS02XYZ"
+    },
+    {
+        "name": "Dacia",
+        "color": "yellow",
+        "model": 1310,
+        "fabrication_date": 1990,
+        "licence_plate": "IS01XYZ"
     }
 ]

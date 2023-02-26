@@ -14,10 +14,10 @@ def add_car():
 	except exceptions.InvalidCarException as ex:
 		abort(400, ex)
 
-@app.route("/car/all", methods=["GET"])
+@app.route("/cars", methods=["GET"])
 def show_all():
 	try:
-		cars = repo.show_all()
+		cars = repo.get_all()
 		return jsonify(cars)
 	except exceptions.InvalidCarException as ex:
 		abort(404, ex)
