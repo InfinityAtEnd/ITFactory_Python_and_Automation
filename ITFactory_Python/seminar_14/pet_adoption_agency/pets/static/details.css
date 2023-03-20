@@ -1,0 +1,23 @@
+table, th, tr, td {
+    border:1.2px solid;
+    border-color:blue;
+    color:darkblue;
+    padding:3px;
+}
+td {
+    color:mediumblue;
+    font-style:italic;
+    background-color:lightgoldenrodyellow;
+    font-family:Papyrus, Fantasy;
+}
+th {
+    background-color:LemonChiffon;
+    font-family:Fantasy copperplate;
+}
+table {
+    background-color:powderblue;
+}
+.pet-location {
+    color:violet;
+    font-weight:bold;
+}

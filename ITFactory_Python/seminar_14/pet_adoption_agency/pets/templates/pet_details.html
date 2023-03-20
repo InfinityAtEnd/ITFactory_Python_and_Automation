@@ -6,8 +6,23 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{pet.name}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'details.css' %}">
 </head>
 <body>
-{{pet}}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Gender</th>
+            <th>Species</th>
+        </tr>
+        <tr>
+            <td class="pet-name">{{pet.name}}</td>
+            <td class="pet-location">{{pet.location}}</td>
+            <td class="pet-gender">{{pet.gender}}</td>
+            <td class="pet-species">{{pet.species}}</td>
+        </tr>
+    </table>
 </body>
 </html>

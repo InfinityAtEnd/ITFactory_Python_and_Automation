@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ pet.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+</head>
+<body>
+<div class="pet-details">
+    <span class="pet-species">
+    {% if pet.species == 'cat' %}
+        <i class='fas fa-cat'></i>
+    {% elif pet.species == 'dog' %}
+        <i class='fas fa-dog'></i>
+    {% elif pet.species == 'rabbit' %}
+        <i class='fa fa-circle'></i>
+    {% endif %}
+    </span>
+    <span class="pet-name">{{ pet.name }}</span>
+    <span class="pet-location"><i class='fa-solid fa-map-location '></i>{{ pet.location }}</span>
+    <span class="pet-gender">
+    {% if pet.gender == "F" %}
+        <i class='fa fa-female'></i>
+    {% else %}
+        <i class='fa fa-male'></i>
+    {% endif %}
+    </span>
+
+</div>
+</body>
+</html>
